@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PIXELGMS</title>
+</head>
+<body>
+
+<h1>PixelGMS</h1>
+
+<div id="search-container">
+    <input type="text" id="search" placeholder="Search for Games">
+    <button id="search-button">Search</button>
+</div>
+
+<div id="button-container">
+    <button id="button1">Button 1</button>
+    <button id="button2">Button 2</button>
+    <button id="button3">Button 3</button>
+    <button id="button4">Button 4</button>
+</div>
+
+<div id="content">
+    <!-- Content for each button's page will go here -->
+</div>
+
+<script>
+    // Add event listeners to the buttons to load content dynamically
+    const buttons = document.querySelectorAll('button[id^="button"]');
+    const contentDiv = document.getElementById('content');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const buttonId = button.id.replace('button', '');
+            const content = `
+                <h2>Content for Button ${buttonId}</h2>
+                <p>This is the content for Button ${buttonId}. You can customize this section as needed.</p>
+                <img src="editable-image-${buttonId}.jpg" alt="Editable Image ${buttonId}">
+            `;
+            contentDiv.innerHTML = content;
+        });
+    });
+
+    // Search functionality (for illustration purposes)
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search');
+
+    searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value;
+        // You can implement search functionality here to filter buttons/content
+    });
+</script>
+
+</body>
+</html>
